@@ -19,7 +19,7 @@ const Register = () => {
   const [pic, setPic] = useState(
     "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
   );
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(null);
   const { passwordShown, togglePassword } = useVisiblePassword();
   const [disabled, setDisabled] = useState(false);
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Register = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(name, email, pic);
-    setMessage("");
+    setMessage(null);
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
     } else {
@@ -74,8 +74,7 @@ const Register = () => {
         aria-atomic="true"
         className="position-relative"
       >
-        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-        {console.log(error)}
+        {error && <ErrorMessage variant="danger">{error.message}</ErrorMessage>}
         {message && <ErrorMessage variant="info">{message}</ErrorMessage>}
         {loading && <Loading />}
         <MainScreen title="Register" width="70%">

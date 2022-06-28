@@ -1,30 +1,11 @@
 import React, { useState } from "react";
-import { Alert, Toast, ToastContainer } from "react-bootstrap";
-import { ExclamationCircleFill } from "react-bootstrap-icons";
+import { Alert } from "react-bootstrap";
 
-const ErrorMessage = ({ variant = "info", children }) => {
-  const [show, setShow] = useState(true);
+const ErrorMessage = ({ variant, children }) => {
   return (
-    <ToastContainer className="p-4" position="bottom-start">
-      <Toast
-        bg={variant}
-        className="text-white"
-        onClose={() => setShow(false)}
-        show={show}
-        delay={5000}
-        autohide
-        animation="true"
-      >
-        <Toast.Header>
-          <ExclamationCircleFill />
-          <strong className="me-auto">Error!</strong>
-          <small>1 second ago</small>
-        </Toast.Header>
-        <Toast.Body>
-          {typeof children === "object" ? children.name : children}
-        </Toast.Body>
-      </Toast>
-    </ToastContainer>
+    <Alert variant={variant} style={{ fontSize: 20 }}>
+      <strong>{children}</strong>
+    </Alert>
   );
 };
 
