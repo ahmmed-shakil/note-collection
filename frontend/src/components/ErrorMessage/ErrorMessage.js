@@ -3,10 +3,9 @@ import { Alert, Toast, ToastContainer } from "react-bootstrap";
 import { ExclamationCircleFill } from "react-bootstrap-icons";
 
 const ErrorMessage = ({ variant = "info", children }) => {
-  console.log(children);
   const [show, setShow] = useState(true);
   return (
-    <ToastContainer className="p-3" position="bottom-start">
+    <ToastContainer className="p-4" position="bottom-start">
       <Toast
         bg={variant}
         className="text-white"
@@ -21,7 +20,9 @@ const ErrorMessage = ({ variant = "info", children }) => {
           <strong className="me-auto">Error!</strong>
           <small>1 second ago</small>
         </Toast.Header>
-        <Toast.Body>{children}</Toast.Body>
+        <Toast.Body>
+          {typeof children === "object" ? children.name : children}
+        </Toast.Body>
       </Toast>
     </ToastContainer>
   );

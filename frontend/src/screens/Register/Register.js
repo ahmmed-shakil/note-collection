@@ -30,7 +30,7 @@ const Register = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(name, email, pic);
-    setMessage(null);
+    setMessage("");
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
     } else {
@@ -74,9 +74,9 @@ const Register = () => {
         aria-atomic="true"
         className="position-relative"
       >
-        {/* {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {console.log(error)}
-        {message && <ErrorMessage variant="info">{message}</ErrorMessage>} */}
+        {message && <ErrorMessage variant="info">{message}</ErrorMessage>}
         {loading && <Loading />}
         <MainScreen title="Register" width="70%">
           <div className="loginContainer">
